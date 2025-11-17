@@ -5,13 +5,21 @@ A backend API for an Expense Tracker / Splitter application built using FastAPI,
 ---
 
 ## 🔧 Tech Stack
-- **Python 3.13**
-- **FastAPI** (async APIs, Pydantic validation)
-- **uv** (Rust-based package manager, faster than pip)
-- **PostgreSQL** (open-source, widely used in production)
-- **Docker** (running PostgreSQL container instead of local installation)
-- **SQLAlchemy** (ORM)
-- **Uvicorn** (ASGI server)
+
+- **Python 3.13**  
+  Latest version with improved performance and typing features
+
+- **uv**  
+  A blazing-fast Python package manager written in Rust. Used instead of pip for speed and built-in tooling.
+
+- **FastAPI**  
+  Modern, async-ready Python framework for building APIs. Uses Pydantic for data validation and auto-generates Swagger docs.
+
+- **PostgreSQL**  
+  Open-source relational database. Chosen for its speed, reliability, and wide adoption in production systems.
+
+- **Docker**  
+  Used to run PostgreSQL as a container instead of installing it locall
 
 ---
 
@@ -27,17 +35,16 @@ A backend API for an Expense Tracker / Splitter application built using FastAPI,
 
 ---
 
+
 ## ▶️ How to Run
 
-### 1. Start PostgreSQL (Docker)
-Use Docker Compose to pull and run PostgreSQL:
-
 ```bash
-docker-compose up -d
-
-
-- Entry file that creates the FastAPI `app` instance.
-- The server is run using:
-
-  ```bash
-  uvicorn main:app --reload
+1. git clone https://github.com/ritikshub/expense-splitter-api.git
+2. cd expense-splitter-api
+3. If you don't have uv, kindly install it. I have mentioned the link below:
+   https://docs.astral.sh/uv/getting-started/installation/#__tabbed_1_1
+4. uv venv .venv --> this creates virtual environment for this project, so we can avoid conflicts and keep ourproject clean & organized.
+5. source .venv/bin/activate --> command for activate the virtual environment
+6. Install the dependency, just type, uv sync
+7. Keep the database up and runnig: docker-compose up -d (do changes in your docker-compose, like username, passwd, db name)
+8. finally, run the command: uvicorn main:app --reload
